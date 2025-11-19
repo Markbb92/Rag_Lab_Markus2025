@@ -1,0 +1,17 @@
+# Ignore Python virtual environments
+rag_env/
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Cursor/VSCode
+.vscode/
+.idea/
+
+# Ignore model weights / checkpoints
+*.pt
+*.bin
+*.safetensors
