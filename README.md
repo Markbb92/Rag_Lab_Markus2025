@@ -12,7 +12,7 @@ A sophisticated Retrieval-Augmented Generation (RAG) system built with **Gemini 
 
 ## 🏗️ System Architecture
 
-![Architecture Diagram](./architecture.png)
+![Architecture Diagram](./Rag_Lab Diagram.png)
 > *Note: If you haven't uploaded your diagram yet, see the "Architecture" section in the docs.*
 
 ## 🛠️ Tech Stack
