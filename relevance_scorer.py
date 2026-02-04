@@ -119,11 +119,27 @@ class RelevanceScorer:
         distances = results['distances'][0]   # ChromaDB distances
         metadatas = results['metadatas'][0]   # Metadata for each result
         
+        # Get all document embeddings at once for efficiency
+        result_ids = results['ids'][0]
+        doc_embeddings_result = self.collection.get(
+            ids=result_ids,
+            include=['embeddings']
+        )
+        doc_embeddings = doc_embeddings_result['embeddings'] if doc_embeddings_result['embeddings'] else []
+        
         # Calculate scores for each result
         for i, doc in enumerate(documents):
-            # Convert ChromaDB distance to cosine similarity
-            # ChromaDB uses distance (lower is better), similarity is 1 - distance
-            cosine_sim = 1 - distances[i]
+            # Recalculate cosine similarity directly from embeddings
+            # This is more accurate than converting ChromaDB distance
+            if i < len(doc_embeddings) and doc_embeddings[i]:
+                cosine_sim = self.cosine_similarity(query_embedding, doc_embeddings[i])
+                # Ensure similarity is in [0, 1] range (should be, but clamp just in case)
+                cosine_sim = max(0.0, min(1.0, cosine_sim))
+            else:
+                # Fallback: try to convert distance (may not work if using L2)
+                # ChromaDB cosine distance = 1 - cosine_similarity
+                raw_similarity = 1 - distances[i]
+                cosine_sim = max(0.0, min(1.0, raw_similarity))
             
             # Calculate keyword overlap score
             keyword_score = self.keyword_overlap_score(query, doc)

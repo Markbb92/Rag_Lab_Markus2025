@@ -5,3 +5,11 @@ google-generativeai==0.3.2
 transformers==4.37.2
 torch==2.2.0
 numpy==1.26.3
+# Optional: For PDF and DOCX file support
+PyPDF2>=3.0.0
+python-docx>=1.0.0
+# Langfuse for hallucination monitoring and observability
+langfuse>=2.0.0
+# python-dotenv for loading .env file
+python-dotenv>=1.0.0
+# Note: protobuf version may conflict - if Streamlit errors occur, may need to pin protobuf<5
