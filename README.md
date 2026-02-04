@@ -1,6 +1,6 @@
-# 📚 Advanced RAG Chatbot with Safety Guardrails
+# 📚 RAG Chatbot with Safety Guardrails
 
-A sophisticated Retrieval-Augmented Generation (RAG) system built with **Gemini 2.5 Flash**, **ChromaDB**, and **Streamlit**. Unlike basic RAG setups, this implementation includes a multi-layer safety pipeline, custom relevance scoring, and hallucination monitoring.
+A Retrieval-Augmented Generation (RAG) system built with **Gemini 2.5 Flash**, **ChromaDB**, and **Streamlit**. Unlike basic RAG setups, this implementation includes a multi-layer safety pipeline, custom relevance scoring, and hallucination monitoring.
 
 ## 🚀 Key Features
 
@@ -13,7 +13,6 @@ A sophisticated Retrieval-Augmented Generation (RAG) system built with **Gemini 
 ## 🏗️ System Architecture
 
 ![Architecture Diagram](./Rag_Lab Diagram.png)
-> *Note: If you haven't uploaded your diagram yet, see the "Architecture" section in the docs.*
 
 ## 🛠️ Tech Stack
 
